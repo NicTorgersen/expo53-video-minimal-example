@@ -7,4 +7,4 @@ Run with
 $ npx expo run:android --device
 ````
 
-Then open `react devtools` with `j` in the runner instance.
+Then open `react devtools` with `j` in the runner instance and look for VideoView in the components-view.
