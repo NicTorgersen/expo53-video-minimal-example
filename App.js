@@ -1,11 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import {useVideoPlayer, VideoView} from "expo-video";
+
+const defaultVideoSource = 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
 
 export default function App() {
+  const player = useVideoPlayer(defaultVideoSource, player => {
+    player.loop = true;
+  })
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <VideoView player={player} />
     </View>
   );
 }
@@ -17,4 +23,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
+  videoPlayerContainer: {
+    ...StyleSheet.absoluteFill,
+    flex: 1,
+    zIndex: 1,
+  }
 });
